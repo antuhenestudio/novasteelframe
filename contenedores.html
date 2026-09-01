@@ -79,6 +79,37 @@
                 repeating-linear-gradient(90deg, rgba(255,255,255,0.045) 0px, rgba(255,255,255,0.045) 2px, transparent 2px, transparent 15px);
         }
 
+        /* Fondo gigante con foto real, nítida arriba y difuminada a oscuro abajo - mismo tratamiento que el hero de Steel Frame */
+        #hero-containers {
+            position: relative;
+            overflow: hidden;
+            background-color: #0F172A;
+        }
+        #hero-containers::before {
+            content: '';
+            position: absolute;
+            inset: -40px;
+            background-image: url('https://images.unsplash.com/photo-1595514535215-95f5c8b1e8f5?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center 45%;
+            transform: scale(1.05);
+            z-index: 0;
+        }
+        #hero-containers::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, transparent 44%, rgba(15,23,42,0.65) 72%, rgba(15,23,42,0.98) 100%);
+            z-index: 1;
+        }
+        #hero-containers > * {
+            position: relative;
+            z-index: 2;
+        }
+        #hero-containers h1, #hero-containers p {
+            text-shadow: 0 0 18px rgba(15,23,42,0.85), 0 0 36px rgba(15,23,42,0.6);
+        }
+
         @keyframes ping-slow {
             0% { transform: scale(1); opacity: 0.45; }
             75%, 100% { transform: scale(1.6); opacity: 0; }
@@ -149,65 +180,50 @@
         </div>
     </header>
 
-    <!-- Hero propio de la subpágina, fondo de chapa corrugada oscuro -->
-    <section id="hero-containers" class="pt-28 sm:pt-36 pb-16 sm:pb-24 bg-corrugated-dark text-white border-b border-slate-800">
+    <!-- Hero propio de la subpágina, foto real de fondo con degradé -->
+    <section id="hero-containers" class="pt-28 sm:pt-36 pb-16 sm:pb-24 text-white border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="max-w-3xl space-y-5 text-left">
 
-                <div class="lg:col-span-7 space-y-5 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold rounded-full">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        Nova Steel Frame - Soluciones en Contenedores
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-slate-900/40 backdrop-blur-sm border border-emerald-500/30 text-emerald-400 text-xs font-bold rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Nova Steel Frame - Soluciones en Contenedores
+                </div>
+
+                <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+                    Contenedores marítimos, adaptados a tu proyecto
+                </h1>
+
+                <p class="text-sm sm:text-base text-slate-200 max-w-2xl font-normal leading-relaxed">
+                    Transformamos contenedores marítimos en viviendas, depósitos, baños de obra u oficinas a medida. Estructura robusta, montaje rápido y menor costo que una construcción tradicional equivalente, en todo el Valle de Neuquén y Río Negro.
+                </p>
+
+                <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-4 border-t border-white/10 max-w-xl">
+                    <div class="p-3 bg-slate-900/60 backdrop-blur-sm rounded-lg border border-white/10 text-center">
+                        <span class="block font-heading text-xl sm:text-2xl font-bold text-emerald-400">15 días</span>
+                        <span class="text-[11px] text-slate-300 font-medium">Entregas más rápidas</span>
                     </div>
-
-                    <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
-                        Contenedores marítimos, adaptados a tu proyecto
-                    </h1>
-
-                    <p class="text-sm sm:text-base text-slate-300 max-w-2xl font-normal leading-relaxed">
-                        Transformamos contenedores marítimos en viviendas, depósitos, baños de obra u oficinas a medida. Estructura robusta, montaje rápido y menor costo que una construcción tradicional equivalente, en todo el Valle de Neuquén y Río Negro.
-                    </p>
-
-                    <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-4 border-t border-white/10 max-w-xl">
-                        <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-center">
-                            <span class="block font-heading text-xl sm:text-2xl font-bold text-emerald-400">15 días</span>
-                            <span class="text-[11px] text-slate-400 font-medium">Entregas más rápidas</span>
-                        </div>
-                        <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-center">
-                            <span class="block font-heading text-xl sm:text-2xl font-bold text-emerald-400">100%</span>
-                            <span class="text-[11px] text-slate-400 font-medium">A Medida</span>
-                        </div>
-                        <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-center">
-                            <span class="block font-heading text-xl sm:text-2xl font-bold text-emerald-400">20' / 40'</span>
-                            <span class="text-[11px] text-slate-400 font-medium">Medidas Disponibles</span>
-                        </div>
+                    <div class="p-3 bg-slate-900/60 backdrop-blur-sm rounded-lg border border-white/10 text-center">
+                        <span class="block font-heading text-xl sm:text-2xl font-bold text-emerald-400">100%</span>
+                        <span class="text-[11px] text-slate-300 font-medium">A Medida</span>
                     </div>
-
-                    <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-3">
-                        <a href="https://wa.me/5492995751599?text=Hola,%20vengo%20del%20sitio%20web,%20me%20gustar%C3%ADa%20recibir%20asesoramiento%20sobre%20contenedores%20mar%C3%ADtimos.%20Mi%20nombre%20es:" 
-                           target="_blank" rel="noopener"
-                           class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-emerald-500 text-slate-900 font-semibold text-sm hover:bg-emerald-400 transition-all text-center flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20">
-                            <i class="fa-brands fa-whatsapp text-lg"></i>
-                            <span>Consultar por WhatsApp</span>
-                        </a>
-                        <a href="#catalogo" 
-                           class="w-full sm:w-auto px-6 py-3.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-all text-center">
-                            Ver catálogo
-                        </a>
+                    <div class="p-3 bg-slate-900/60 backdrop-blur-sm rounded-lg border border-white/10 text-center">
+                        <span class="block font-heading text-xl sm:text-2xl font-bold text-emerald-400">20' / 40'</span>
+                        <span class="text-[11px] text-slate-300 font-medium">Medidas Disponibles</span>
                     </div>
                 </div>
 
-                <div class="lg:col-span-5">
-                    <div class="rounded-2xl overflow-hidden border border-white/10 shadow-subtle bg-white/5 p-2">
-                        <img src="https://images.unsplash.com/photo-1595514535215-95f5c8b1e8f5?auto=format&fit=crop&w=1000&q=80" 
-                             alt="Vivienda hecha con contenedor marítimo en Neuquén" 
-                             loading="lazy"
-                             class="w-full h-[320px] sm:h-[380px] object-cover rounded-xl">
-                        <div class="p-4">
-                            <h3 class="font-heading font-bold text-white text-base">Container acondicionado como vivienda</h3>
-                            <p class="text-xs text-slate-400">Instalación eléctrica, sanitaria y aislación térmica incluidas</p>
-                        </div>
-                    </div>
+                <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-3">
+                    <a href="https://wa.me/5492995751599?text=Hola,%20vengo%20del%20sitio%20web,%20me%20gustar%C3%ADa%20recibir%20asesoramiento%20sobre%20contenedores%20mar%C3%ADtimos.%20Mi%20nombre%20es:" 
+                       target="_blank" rel="noopener"
+                       class="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-emerald-500 text-slate-900 font-semibold text-sm hover:bg-emerald-400 transition-all text-center flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Consultar por WhatsApp</span>
+                    </a>
+                    <a href="#catalogo" 
+                       class="w-full sm:w-auto px-6 py-3.5 rounded-lg border border-white/30 bg-slate-900/30 backdrop-blur-sm text-white font-semibold text-sm hover:bg-white/10 transition-all text-center">
+                        Ver catálogo
+                    </a>
                 </div>
 
             </div>
